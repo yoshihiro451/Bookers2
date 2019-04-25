@@ -1,0 +1,35 @@
+<section class="sct-color-1 slice">
+  <div class="container-fluid masonry-container">
+    <div class="row">
+        <%= render "temple/list",book: @book,user: current_user %>
+
+<%# end %>
+      <div class="col-xs-9 ">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thead>
+           <% @books.each do |book| %>
+              <tbody>
+                <tr>
+                  <td><%= attachment_image_tag book.user, :profile_image %></td>
+                  <td>
+                    <%= link_to book_path(book.id) do %>
+                      <%= book.title %>
+                    <% end %>
+                  </td>
+                  <td><%= book.opinion %></td>
+                </tr>
+              </tbody>
+           <% end %>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>ß

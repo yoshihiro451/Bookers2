@@ -1,0 +1,25 @@
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <%= render "temple/list",book: @book,user: current_user %>
+  <div class="col-xs-9">
+    <h2>Books</h2>
+    <table class="table table-hover tasble-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |b| %>
+        <tr>
+          <td><%= attachment_image_tag b.user, :profile_image, :fill, 100,100, format: 'jpeg', fallback: "no_image.jpg",size: "100x100" %></td>
+          <td><%= link_to b.title, book_path(b.id) %></td>
+          <td><%= b.opinion %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>s

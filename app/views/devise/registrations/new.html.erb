@@ -1,0 +1,35 @@
+
+<div class="container">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+    <h2>Sing up</h2>
+    <div class="form-group">
+        <label class="" for="inputName">Name</label>
+        <br>
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:""%>
+    </div>
+    <div class="form-group has-icon">
+        <label class="" for="inputEmail">Email</label>
+        <br>
+        <%= f.email_field :email, id:"inputEmail", placeholder:""%>
+        <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
+    </div>
+    <div class="form-group has-icon">
+        <label class="" for="inputPassword">Password(6 characters minimum)</label>
+        <br>
+        <%= f.password_field :password, autocomplete: "off", id:"inputPassword", placeholder:"" %>
+        <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
+    </div>
+    <div class="form-group has-icon">
+        <label class="" for="inputConfirmPassword">Password confirmation</label>
+        <br>
+        <%= f.password_field :password_confirmation, autocomplete: "off", id:"inputConfirmPassword", placeholder:"" %>
+         <span class="fa fa-check-circle-o form-control-icon" aria-hidden="true"></span>
+    </div>
+    <button class="btn btn-success">Sing up</button>
+        <!--<%= f.submit "Sing up", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+    <% end %>-->
+    <br>
+<%= render "devise/shared/links" %>
+</div>

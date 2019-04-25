@@ -1,0 +1,45 @@
+        <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  <div class="container">
+  	<div class="row">
+  	<%= render "temple/list",book: @bookn,user: current_user %>
+  	 <div class="col-xs-9 ">
+          <table class="table table-striped">
+          	<thead>
+          		<tr>
+          			<th>Book detail</th>
+          		</tr>
+          	</thead>
+          	<tbody>
+          		<tr>
+                  <td><%= attachment_image_tag @book.user, :profile_image %></td>
+                  <td><%= link_to book_path(@book.id) do %>
+                      <%= @book.title %>
+                      <% end %>
+                  </td>
+                  <td><%= @book.opinion %></td>
+                  <td><%# link_to book %></td>
+                   <% if @book.user == current_user %>
+
+                  <td>
+                    <%= link_to "Edit", edit_book_path(@book.id),class: "btn btn-success" %>
+                  </td>
+                 <td>
+                  <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+                 </td>
+     <% end %>
+    </li></td>
+          		</tr>
+          	</tbody>
+          </table>
+	  </div>
+	 </div>
+  </div>
+  <br>
+
+ <li>
+
+</ul>
